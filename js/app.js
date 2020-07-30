@@ -74,7 +74,7 @@ var calculadora = {
 		document.getElementById("on").addEventListener("click", function() {calculadora.borrarDisplay();});
 		document.getElementById("sign").addEventListener("click", function() {calculadora.cambiarSigno();});
 		document.getElementById("punto").addEventListener("click", function() {calculadora.ingresoDecimal();});
-		document.getElementById("igual").addEventListener("click", function() {calculadora.verResultado();});
+		document.getElementById("igual").addEventListener("click", function() {calculadora.mostrarResultado();});
 		document.getElementById("raiz").addEventListener("click", function() {calculadora.ingresoOperacion("raiz");});
 		document.getElementById("dividido").addEventListener("click", function() {calculadora.ingresoOperacion("/");});
 		document.getElementById("por").addEventListener("click", function() {calculadora.ingresoOperacion("*");});
@@ -118,6 +118,29 @@ var calculadora = {
     }
   },
 
+  ingresoNumero: function(valor){
+    if (this.valorPantalla.length < 8){
+      if (this.valorPantalla== "0"){
+        this.valorPantalla = "";
+        this.valorPantalla = this.valorPantalla + valor;
+      }else{
+        this.valorPantalla = this.valorPantalla + valor;
+      }
+      this.actualizaPantalla();
+    }
+  },
+
+  ingresoOperacion: function(operador){
+    this.primerValor = parseFloat(this.valorPantalla);
+    this.valorPantalla = "";
+    this.operacion = operador;
+    this.auxTeclaIgual = false;
+    this.actualizaPantalla();
+  },
+
+  mostrarResultado: function(){
+    
+  }
 
 
 }
