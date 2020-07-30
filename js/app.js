@@ -138,9 +138,47 @@ var calculadora = {
     this.actualizaPantalla();
   },
 
+  realizarOperacion: function(primerValor, segundoValor, operacion){
+		switch(operacion){
+			case "+":
+				this.resultado = eval(primerValor + segundoValor);
+			break;
+			case "-":
+				this.resultado = eval(primerValor - segundoValor);
+			break;
+			case "*":
+				this.resultado = eval(primerValor * segundoValor);
+			break;
+			case "/":
+				this.resultado = eval(primerValor / segundoValor);
+			break;
+			case "raiz":
+				this.resultado = eval(Math.sqrt(primerValor));
+		}
+	},
+
   mostrarResultado: function(){
-    
-  }
+    if(!this.auxTeclaIgual){
+  			this.segundoValor = parseFloat(this.valorPantalla);
+  			this.ultimoValor = this.segundoValor;
+  			this.realizarOperacion(this.primerValor, this.segundoValor, this.operacion);
+  		}else{
+  			this.realizarOperacion(this.primerValor, this.ultimoValor, this.operacion);
+  		}
+      this.primerValor = this.resultado;
+  		this.valorPantalla = "";
+  		if (this.resultado.toString().length < 9){
+  			this.valorPantalla = this.resultado.toString();
+  		}else{
+  			this.valorPantalla = this.resultado.toString().slice(0,8) + "...";
+  		}
+  		this.auxTeclaIgual = true;
+  		this.actualizaPantalla();
+  },
 
+  actualizaPantalla: function(){
+    this.visor.innerHTML = this.valorPantalla;
+  },
+};
 
-}
+calculadora.init();
