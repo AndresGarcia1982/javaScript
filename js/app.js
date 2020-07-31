@@ -16,8 +16,8 @@ var calculadora = {
 
   //Eventos con los botones de la calculadora
   asignarEventosBotones: function(selector){
-    var x = document.querySectorAll(selector);
-    for (var i = 0; i<x.length; i++){
+    var x = document.querySelectorAll(selector);
+    for (var i = 0; i < x.length; i++){
       x[i].onmouseover = this.eventoReduceBoton;
       x[i].onmouseleave = this.eventoRegresaBoton;
     };
@@ -27,7 +27,7 @@ var calculadora = {
     calculadora.reduceBoton(event.target);
   },
   eventoRegresaBoton: function(event){
-    calculadora.aumentoBoton(event.target);
+    calculadora.aumentaBoton(event.target);
   },
 
   //Formato de los Botones
@@ -138,6 +138,7 @@ var calculadora = {
     this.actualizaPantalla();
   },
 
+  //Menu operaciones matemáticas
   realizarOperacion: function(primerValor, segundoValor, operacion){
 		switch(operacion){
 			case "+":
@@ -177,7 +178,7 @@ var calculadora = {
   },
 
   actualizaPantalla: function(){
-    this.visor.innerHTML = this.valorPantalla;
+    this.pantalla.innerHTML = this.valorPantalla;
   },
 };
 
