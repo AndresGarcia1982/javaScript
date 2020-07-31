@@ -72,7 +72,7 @@ var calculadora = {
 		document.getElementById("7").addEventListener("click", function() {calculadora.ingresoNumero("7");});
 		document.getElementById("8").addEventListener("click", function() {calculadora.ingresoNumero("8");});
 		document.getElementById("9").addEventListener("click", function() {calculadora.ingresoNumero("9");});
-		document.getElementById("on").addEventListener("click", function() {calculadora.borrarDisplay();});
+		document.getElementById("on").addEventListener("click", function() {calculadora.borrarPantalla();});
 		document.getElementById("sign").addEventListener("click", function() {calculadora.cambiarSigno();});
 		document.getElementById("punto").addEventListener("click", function() {calculadora.ingresoDecimal();});
 		document.getElementById("igual").addEventListener("click", function() {calculadora.mostrarResultado();});
